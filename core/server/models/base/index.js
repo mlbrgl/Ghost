@@ -302,16 +302,11 @@ ghostBookshelf.Model = ghostBookshelf.Model.extend({
 
     /**
      * please use these static definitions when comparing id's
-     * we keep type number, because we have too many check's where we rely on
+     * we keep type Number, because we have too many check's where we rely on Number
      * context.user ? true : false (if context.user is 0 as number, this condition is false)
      */
     internalUser: 1,
-    ownerUser: 1,
     externalUser: 0,
-
-    isOwnerUser: function isOwnerUser(id) {
-        return id === ghostBookshelf.Model.ownerUser || id === ghostBookshelf.Model.ownerUser.toString();
-    },
 
     isInternalUser: function isInternalUser(id) {
         return id === ghostBookshelf.Model.internalUser || id === ghostBookshelf.Model.internalUser.toString();
@@ -353,7 +348,7 @@ ghostBookshelf.Model = ghostBookshelf.Model.extend({
      * `sanitizeData` ensures that client data is in the correct format for further operations.
      *
      * Dates:
-     * - client dates are sent as ISO format (moment(..).format())
+     * - client dates are sent as ISO 8601 format (moment(..).format())
      * - server dates are in JS Date format
      *   >> when bookshelf fetches data from the database, all dates are in JS Dates
      *   >> see `parse`

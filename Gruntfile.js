@@ -68,7 +68,7 @@ var overrides      = require('./core/server/overrides'),
                     }
                 },
                 express: {
-                    files:  ['core/ghost-server.js', 'core/server/**/*.js', 'config.*.json'],
+                    files:  ['core/ghost-server.js', 'core/server/**/*.js', 'config.*.json', '!config.testing.json'],
                     tasks:  ['express:dev'],
                     options: {
                         nospawn: true,
@@ -321,7 +321,7 @@ var overrides      = require('./core/server/overrides'),
                         sourceMap: false
                     },
                     files: {
-                        'core/server/public/ghost-url.min.js': 'core/server/public/ghost-url.js'
+                        'core/server/public/ghost-sdk.min.js': 'core/server/public/ghost-sdk.js'
                     }
                 }
             },
